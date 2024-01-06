@@ -25,7 +25,7 @@ const BlockDetails: React.FC<{
         return (
           <div
             key={`BlockDetail-${nodeOmittingChildren.id}-${key}`}
-          >{`${key}: ${value}`}</div>
+          >{`${key}: ${JSON.stringify(value)}`}</div>
         );
       })}
     </div>

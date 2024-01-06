@@ -23,6 +23,7 @@ Currently runs the app in the development mode.
 - Trees
 - Parsing
 - Recursion
+- FileReader
 
 ## Categories
 
@@ -47,13 +48,16 @@ npm i
 
 ## Usage
 
-Edit the `./resources/exampleTreeData.ts` with your tree.
+Edit the `./resources/input.json` with your tree.\
+Currently, each tree node **must** have an `id`.
 
 ```shell
 npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+Drag and drop you input _JSON_ file with the tree (this can be _any_ data as long as it has an `id` and nested `children`).
 
 ## Preview
 

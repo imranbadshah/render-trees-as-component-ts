@@ -1,16 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { treeData } from "./resources/exampleTreeData";
 import Block from "./components/Block";
+import { convertToTreeData } from "./convertToTreeData";
+import FileDropZone from "./components/FileDropZone";
+import { TreeNode } from "./types/basicTree";
 
 const App: React.FC = () => {
-  // Use treeData or dynamic data here
+  const [treeData, setTreeData] = useState<TreeNode[]>([]);
+
+  const processFile = (file: any) => {
+    if (file.type === "application/json") {
+      const reader = new FileReader();
+      reader.onload = (event: any) => {
+        try {
+          const jsonData = JSON.parse(event.target.result);
+          setTreeData(convertToTreeData(jsonData));
+        } catch (error) {
+          console.error("Error parsing JSON:", error);
+        }
+      };
+      reader.readAsText(file);
+    } else {
+      console.error("Unsupported file type");
+    }
+  };
+
+  if (!treeData.length) {
+    return <FileDropZone processFile={processFile} />;
+  }
+
   return (
-    <div>
-      {treeData.map((node) => (
+    <>
+      {treeData.map((node: any) => (
         <Block key={node.id} node={node} />
       ))}
-    </div>
+    </>
   );
 };
 

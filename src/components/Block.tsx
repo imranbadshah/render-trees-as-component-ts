@@ -31,13 +31,13 @@ const Block: React.FC<{ node: TreeNode; level?: number }> = ({
         <div
           style={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "column",
             justifyContent: "flex-start",
             position: "relative",
             marginLeft: `${indentation}px`, // Adjust indentation
           }}
         >
-          <ChildArrow />
+          {/* <ChildArrow /> */}
           {node.children?.map((child) => (
             <div key={`BlockChild-${child.id}`}>
               <Block node={child} level={level + 1} />
