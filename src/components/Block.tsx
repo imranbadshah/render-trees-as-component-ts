@@ -18,7 +18,7 @@ const Block: React.FC<{ node: TreeNode; level?: number }> = ({
   level = 0,
 }) => {
   const hasChildren = node.children && node.children.length > 0;
-  const indentation = "20";
+  const indentation = "40";
   const nodeOmittingChildren: TreeNodeWithoutChildren = _.omit(
     node,
     "children",
