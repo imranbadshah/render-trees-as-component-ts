@@ -4,6 +4,7 @@ import Block from "./components/Block";
 import { convertToTreeData } from "./convertToTreeData";
 import FileDropZone from "./components/FileDropZone";
 import { TreeNode } from "./types/basicTree";
+import { childrenByHasMemberReference } from "./childrenByHasMemberReference";
 
 const App: React.FC = () => {
   const [treeData, setTreeData] = useState<TreeNode[]>([]);
@@ -14,7 +15,9 @@ const App: React.FC = () => {
       reader.onload = (event: any) => {
         try {
           const jsonData = JSON.parse(event.target.result);
-          setTreeData(convertToTreeData(jsonData));
+          setTreeData(
+            convertToTreeData(jsonData, childrenByHasMemberReference),
+          );
         } catch (error) {
           console.error("Error parsing JSON:", error);
         }

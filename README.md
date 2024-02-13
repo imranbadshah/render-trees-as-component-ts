@@ -59,6 +59,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Drag and drop you input _JSON_ file with the tree (this can be _any_ data as long as it has an `id` and nested `children`).
 
+### Identifying children
+
+Children can be either identified by a string or a function that is passed to the `convertToTreeData` function.
+
+> Upcoming: Allow the user to enter the string from the UI or request the devs to write a function (to prevent code-injection)
+
 ## Preview
 
 <picture>
